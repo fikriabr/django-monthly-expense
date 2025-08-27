@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}Monthly Expense{% endblock %}</title>
+    {% load static %}
+    <link href="{% static 'dist/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="text-3xl font-bold tracking-tight text-white">
+          {% block heading %}Monthly Expense{% endblock %}
+        </h1>
+      </div>
+    </header>
+    <main>{% block content %}{% endblock %}</main>
+  </body>
+</html>

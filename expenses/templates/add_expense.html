@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Expense</title>
-</head>
-<body>
-    <h1>Add Expense</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
-    <a href="{% url 'expense_list' %}">Back to list</a>
-</body>
-</html>
+{% extends "base/index.html" %} 
+{% block title %}Monthly Expense{% endblock %}
+{% block heading %}Add Expense{% endblock %}
+{% block content %}
+    <div class="container">
+        <form method="post" class="mb-4">
+            {% csrf_token %} {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+        <a href="{% url 'expense_list' %}">Back to list</a>
+    </div>
+{% endblock %}

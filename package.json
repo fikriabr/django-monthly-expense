@@ -1,0 +1,26 @@
+{
+  "name": "django-monthly-expense",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"python manage.py runserver\" \"npx tailwindcss -i ./static/src/styles.css -o ./static/dist/styles.css --watch\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fikriabr/django-monthly-expense.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fikriabr/django-monthly-expense/issues"
+  },
+  "homepage": "https://github.com/fikriabr/django-monthly-expense#readme"
+}

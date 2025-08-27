@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+html, body {
+  overscroll-behavior: none;
+}
+
+h1 {
+  @apply text-3xl font-bold;
+}
+h2 {
+  @apply text-2xl font-semibold;
+}
+
+input {
+  @apply border rounded py-1 px-2 text-gray-700 leading-tight focus:outline-none
+}
+
+.header {
+  @apply relative bg-gray-800 after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-white/10
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8
+}
+
+button {
+  @apply bg-blue-500 hover:bg-blue-700 text-white text-sm py-1 px-4 rounded
+}
+
+a[href] {
+  @apply text-blue-700 hover:underline
+}
+
+p {
+  @apply w-full flex mb-2
+}
+
+p>label {
+  width: 100px;
+}

@@ -1,25 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Monthly Expenses</title>
-</head>
-<body>
-    <h1>Monthly Expenses</h1>
-    <form method="get">
-        <label>Month:</label>
-        <input type="number" name="month" min="1" max="12" value="{{ month }}">
-        <label>Year:</label>
-        <input type="number" name="year" min="2000" max="2100" value="{{ year }}">
-        <button type="submit">Filter</button>
-    </form>
-    <a href="{% url 'add_expense' %}">Add Expense</a>
-    <h2>Total: {{ total }}</h2>
-    <ul>
-    {% for expense in expenses %}
-        <li>{{ expense.date }} - {{ expense.title }} - {{ expense.amount }}</li>
-    {% empty %}
-        <li>No expenses recorded for this period.</li>
-    {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base/index.html" %}
+{% block title %}Monthly Expense{% endblock %}
+{% block heading %}Monthly Expense{% endblock %}
+{% block content %}
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        <form method="get" class="flex gap-8 items-center mb-4">
+            <label for="month" class="block text-sm/6 font-medium">Month:</label>
+            <input 
+                type="number" 
+                name="month" 
+                min="1" 
+                max="12" 
+                value="{{ month }}" 
+                class="w-[100px]"
+            >
+
+            <label for="year" class="block text-sm/6 font-medium">Year:</label>
+            <input 
+                type="number" 
+                name="year" 
+                min="2000" 
+                max="2100" 
+                value="{{ year }}" 
+                class="w-[100px]"
+            >
+            <button type="submit" class="filter-button">Filter</button>
+        </form>
+
+        <hr />
+        <a href="{% url 'add_expense' %}">Add Expense</a>
+        <h2 class="mt-4 mb-2">Total: {{ total }}</h2>
+        <ul>
+        {% for expense in expenses %}
+            <li>{{ expense.date }} - {{ expense.title }} - {{ expense.amount }}</li>
+        {% empty %}
+            <li>No expenses recorded for this period.</li>
+        {% endfor %}
+        </ul>
+    </div>
+    
+{% endblock %}
