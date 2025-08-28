@@ -2,10 +2,11 @@
 {% block title %}Monthly Expense{% endblock %}
 {% block heading %}Monthly Expense{% endblock %}
 {% block content %}
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <form method="get" class="flex gap-8 items-center mb-4">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 flex flex-col">
+        <form method="get" class="flex gap-8 items-center mb-4 mx-auto p-4 border border-gray-200 bg-gray-100 rounded-xl">
             <label for="month" class="block text-sm/6 font-medium">Month:</label>
             <input 
+                id="month"
                 type="number" 
                 name="month" 
                 min="1" 
@@ -16,6 +17,7 @@
 
             <label for="year" class="block text-sm/6 font-medium">Year:</label>
             <input 
+                id="year"
                 type="number" 
                 name="year" 
                 min="2000" 
@@ -25,17 +27,25 @@
             >
             <button type="submit" class="filter-button">Filter</button>
         </form>
-
-        <hr />
-        <a href="{% url 'add_expense' %}">Add Expense</a>
-        <h2 class="mt-4 mb-2">Total: {{ total }}</h2>
-        <ul>
-        {% for expense in expenses %}
-            <li>{{ expense.date }} - {{ expense.title }} - {{ expense.amount }}</li>
-        {% empty %}
-            <li>No expenses recorded for this period.</li>
-        {% endfor %}
-        </ul>
+        <div class="content pt-4">
+            <a href="{% url 'add_expense' %}">Add Expense</a>
+            <h2 class="mt-4 mb-2">Total: {{ total }}</h2>
+            <ul>
+            {% for expense in expenses %}
+                <li class="list-date">
+                    <div>
+                        {{ expense.date }} - {{ expense.title }} - {{ expense.amount }}
+                    </div>
+                    <button class="close-button"> 
+                        &times;
+                    </button>
+                </li>
+            {% empty %}
+                <li>No expenses recorded for this period.</li>
+            {% endfor %}
+            </ul>
+        </div>
+        
     </div>
     
 {% endblock %}

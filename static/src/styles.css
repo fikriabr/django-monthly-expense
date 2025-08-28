@@ -4,6 +4,16 @@ html, body {
   overscroll-behavior: none;
 }
 
+body {
+  @apply flex justify-center items-center h-[100vh] bg-red-50/50
+}
+
+.body-wrapper {
+  filter: drop-shadow(0 0 5px rgba(177, 177, 177, 0.4));
+  @apply w-[calc(100vw-50px)] lg:w-[900px] xl:w-[1100px] rounded-3xl bg-white border border-gray-200 h-[650px] mx-auto
+
+}
+
 h1 {
   @apply text-3xl font-bold;
 }
@@ -12,11 +22,11 @@ h2 {
 }
 
 input {
-  @apply border rounded py-1 px-2 text-gray-700 leading-tight focus:outline-none
+  @apply border-b focus:border-b-blue-400 border-gray-400 min-w-[200px] py-1 px-2 text-gray-700 leading-tight focus:outline-none
 }
 
 .header {
-  @apply relative bg-gray-800 after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-white/10
+  @apply relative after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-white/10 border-b border-gray-200
 }
 
 .container {
@@ -24,11 +34,11 @@ input {
 }
 
 button {
-  @apply bg-blue-500 hover:bg-blue-700 text-white text-sm py-1 px-4 rounded
+  @apply bg-blue-400 hover:bg-blue-500 text-white text-sm py-1.5 px-5 rounded border
 }
 
 a[href] {
-  @apply text-blue-700 hover:underline
+  @apply text-blue-400 hover:underline
 }
 
 p {
@@ -37,4 +47,13 @@ p {
 
 p>label {
   width: 100px;
+}
+
+.list-date {
+  /* filter: drop-shadow(0 0 5px rgba(90, 90, 200, .5)); */
+  @apply p-4 border border-gray-200 bg-gray-50 mb-2 rounded-xl flex justify-between items-center
+}
+
+.close-button {
+  @apply !bg-red-400 !rounded-full w-[30px] h-[30px] !p-0 hover:bg-red-600
 }
